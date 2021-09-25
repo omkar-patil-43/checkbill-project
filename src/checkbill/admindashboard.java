@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class admindashboard extends JFrame implements ActionListener {
-JButton b1,b2,b3,b4,b5,b6,b7;
+JButton b1,b2,b3,b4,b5,b6,b7,logout;
 Choice ch;
     admindashboard() {
         setExtendedState(JFrame.MAXIMIZED_BOTH);
@@ -18,7 +18,7 @@ Choice ch;
         add(p1);
          JPanel p2 = new JPanel();
         p2.setLayout(null);
-        p2.setBounds(1340, 80, 300, 50);
+        p2.setBounds(1340, 80, 300, 100);
         p2.setBackground(Color.yellow);
         add(p2);
         //langauge label 
@@ -32,6 +32,16 @@ Choice ch;
         ch.add("Marathi");
         ch.setBounds(110, 15, 80, 40);
         p2.add(ch);
+        
+        logout=new JButton("Logout");
+        logout.setBounds(20,50,160,40);
+        logout.setForeground(Color.CYAN);
+        logout.setBackground(Color.black);
+        logout.setFont(new Font("Tohoma",Font.BOLD,17));
+        logout.addActionListener(this);
+        p2.add(logout);
+        
+                
         
         
         ImageIcon i1 = new ImageIcon("C:/Users/admin/Desktop/checkbill/src/checkbill/icons/check.png");
@@ -241,6 +251,9 @@ Choice ch;
         }
         else if(ae.getSource() == b7){
             new searchbill(lang).setVisible(true);
+        }else if(ae.getSource()==logout){
+            this.dispose();
+            new spalsh().setVisible(true);
         }
     }
 

@@ -49,6 +49,12 @@ import javax.swing.SwingUtilities;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
+import java.net.URL;
+
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 
 public class createbillQR extends javax.swing.JFrame implements Runnable, ThreadFactory {
 
@@ -643,6 +649,21 @@ public class createbillQR extends javax.swing.JFrame implements Runnable, Thread
                         // add row to the model
                         model.addRow(row);
 
+                        System.out.println("playing clip..");
+                        try {
+                            URL url = new URL("file:C:/Users/admin/Desktop/checkbill/src/checkbill/sound/bell.wav");
+                            Clip clip = AudioSystem.getClip();
+                            //getAudioInputStream() can also accepts a File or InputStream
+                            AudioInputStream ais = AudioSystem.getAudioInputStream(url);
+                            clip.open(ais);
+                            //clip.loop(Clip.LOOP_CONTINUOUSLY);
+                            clip.start();
+                        } catch (Exception er) {
+                            er.printStackTrace();
+                        }
+                        
+                        
+
                         t3.setText("");
                         t4.setText("");
                         t5.setText("");
@@ -652,7 +673,8 @@ public class createbillQR extends javax.swing.JFrame implements Runnable, Thread
                     }
 
                 } catch (Exception ae) {
-                    JOptionPane.showMessageDialog(null, "Product does not added yet !");
+                    ae.printStackTrace();
+                    
 
                 }
 
@@ -707,6 +729,18 @@ public class createbillQR extends javax.swing.JFrame implements Runnable, Thread
 
                         // add row to the model
                         model.addRow(row);
+                          System.out.println("playing clip..");
+                        try {
+                            URL url = new URL("file:C:/Users/admin/Desktop/checkbill/src/checkbill/sound/bell.wav");
+                            Clip clip = AudioSystem.getClip();
+                            //getAudioInputStream() can also accepts a File or InputStream
+                            AudioInputStream ais = AudioSystem.getAudioInputStream(url);
+                            clip.open(ais);
+                            //clip.loop(Clip.LOOP_CONTINUOUSLY);
+                            clip.start();
+                        } catch (Exception er) {
+                            er.printStackTrace();
+                        }
 
                         t3.setText("");
                         t4.setText("");

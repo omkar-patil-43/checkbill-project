@@ -56,7 +56,7 @@ import java.awt.event.*;
 
 public class cashierdashboard extends JFrame implements ActionListener {
 
-    JButton b1, b2, b3, b4, b5, b6;
+    JButton b1, b2, b3, b4, b5, b6,logout;
     Choice ch;
     JTextField f1;
     String language, c;
@@ -86,6 +86,14 @@ public class cashierdashboard extends JFrame implements ActionListener {
         ch.add("Marathi");
         ch.setBounds(110, 15, 80, 40);
         p2.add(ch);
+        
+        logout=new JButton("Logout");
+        logout.setBounds(20,50,160,40);
+        logout.setForeground(Color.CYAN);
+        logout.setBackground(Color.black);
+        logout.setFont(new Font("Tohoma",Font.BOLD,17));
+        logout.addActionListener(this);
+        p2.add(logout);
 
         ImageIcon i1 = new ImageIcon("C:/Users/admin/Desktop/checkbill/src/checkbill/icons/check.png");
         Image i2 = i1.getImage().getScaledInstance(200, 60, Image.SCALE_DEFAULT);
@@ -280,6 +288,9 @@ public class cashierdashboard extends JFrame implements ActionListener {
             new sales(lang).setVisible(true);
         } else if (ae.getSource() == b5) {
             new about().setVisible(true);
+        }else if(ae.getSource()==logout){
+            this.dispose();
+            new spalsh().setVisible(true);
         }
 
     }
